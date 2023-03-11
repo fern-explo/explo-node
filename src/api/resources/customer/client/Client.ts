@@ -4,13 +4,13 @@
 
 import * as core from "../../../../core";
 import { Explo } from "@fern-api/explo";
+import * as environments from "../../../../environments";
 import urlJoin from "url-join";
 import * as serializers from "../../../../serialization";
 import * as errors from "../../../../errors";
 
 export declare namespace Customer {
     interface Options {
-        environment: string;
         token: core.Supplier<string>;
     }
 }
@@ -28,7 +28,7 @@ export class Customer {
      */
     public async getOrCreate(request: Explo.SetCustomerRequest): Promise<Explo.GetOrCreateCustomerResponse> {
         const _response = await core.fetcher({
-            url: urlJoin(this.options.environment, "/api/create_customer"),
+            url: urlJoin(environments.ExploEnvironment.Production, "/api/create_customer"),
             method: "POST",
             contentType: "application/json",
             body: await serializers.SetCustomerRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
@@ -70,7 +70,7 @@ export class Customer {
      */
     public async update(request: Explo.SetCustomerRequest): Promise<Explo.UpdateCustomerResponse> {
         const _response = await core.fetcher({
-            url: urlJoin(this.options.environment, "/api/update_customer"),
+            url: urlJoin(environments.ExploEnvironment.Production, "/api/update_customer"),
             method: "POST",
             contentType: "application/json",
             body: await serializers.SetCustomerRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
@@ -110,7 +110,7 @@ export class Customer {
      */
     public async delete(request: Explo.DeleteCustomerRequest): Promise<Explo.DeleteCustomerResponse> {
         const _response = await core.fetcher({
-            url: urlJoin(this.options.environment, "/api/delete_customer"),
+            url: urlJoin(environments.ExploEnvironment.Production, "/api/delete_customer"),
             method: "DELETE",
             contentType: "application/json",
             body: await serializers.DeleteCustomerRequest.jsonOrThrow(request, { unrecognizedObjectKeys: "strip" }),
@@ -153,7 +153,7 @@ export class Customer {
      */
     public async refreshToken(request: Explo.RefreshCustomerTokenRequest): Promise<Explo.RefreshCustomerTokenResponse> {
         const _response = await core.fetcher({
-            url: urlJoin(this.options.environment, "/api/refresh_customer_token"),
+            url: urlJoin(environments.ExploEnvironment.Production, "/api/refresh_customer_token"),
             method: "POST",
             contentType: "application/json",
             body: await serializers.RefreshCustomerTokenRequest.jsonOrThrow(request, {

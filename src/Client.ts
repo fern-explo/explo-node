@@ -7,7 +7,6 @@ import { Customer } from "./api/resources/customer/client/Client";
 
 export declare namespace ExploClient {
     interface Options {
-        environment: string;
         token: core.Supplier<string>;
     }
 }
