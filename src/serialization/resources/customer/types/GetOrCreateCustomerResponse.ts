@@ -3,12 +3,12 @@
  */
 
 import * as serializers from "../../..";
-import { ZachkirschApi } from "@fern-api/explo";
+import { Explo } from "@fern-api/explo";
 import * as core from "../../../../core";
 
 export const GetOrCreateCustomerResponse: core.serialization.ObjectSchema<
     serializers.GetOrCreateCustomerResponse.Raw,
-    ZachkirschApi.GetOrCreateCustomerResponse
+    Explo.GetOrCreateCustomerResponse
 > = core.serialization
     .object({
         newCustomer: core.serialization.property("new_customer", core.serialization.boolean()),

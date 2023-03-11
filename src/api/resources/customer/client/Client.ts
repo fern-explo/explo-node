@@ -3,7 +3,7 @@
  */
 
 import * as core from "../../../../core";
-import { ZachkirschApi } from "@fern-api/explo";
+import { Explo } from "@fern-api/explo";
 import urlJoin from "url-join";
 import * as serializers from "../../../../serialization";
 import * as errors from "../../../../errors";
@@ -26,9 +26,7 @@ export class Customer {
      * will be a flag in the response indicating if a new customer was created.
      *
      */
-    public async getOrCreate(
-        request: ZachkirschApi.SetCustomerRequest
-    ): Promise<ZachkirschApi.GetOrCreateCustomerResponse> {
+    public async getOrCreate(request: Explo.SetCustomerRequest): Promise<Explo.GetOrCreateCustomerResponse> {
         const _response = await core.fetcher({
             url: urlJoin(this.options.environment, "/api/create_customer"),
             method: "POST",
@@ -44,7 +42,7 @@ export class Customer {
         }
 
         if (_response.error.reason === "status-code") {
-            throw new errors.ZachkirschApiError({
+            throw new errors.ExploError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
             });
@@ -52,14 +50,14 @@ export class Customer {
 
         switch (_response.error.reason) {
             case "non-json":
-                throw new errors.ZachkirschApiError({
+                throw new errors.ExploError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.ZachkirschApiTimeoutError();
+                throw new errors.ExploTimeoutError();
             case "unknown":
-                throw new errors.ZachkirschApiError({
+                throw new errors.ExploError({
                     message: _response.error.errorMessage,
                 });
         }
@@ -70,7 +68,7 @@ export class Customer {
      * you can update is the name and data_source field.
      *
      */
-    public async update(request: ZachkirschApi.SetCustomerRequest): Promise<ZachkirschApi.UpdateCustomerResponse> {
+    public async update(request: Explo.SetCustomerRequest): Promise<Explo.UpdateCustomerResponse> {
         const _response = await core.fetcher({
             url: urlJoin(this.options.environment, "/api/update_customer"),
             method: "POST",
@@ -86,7 +84,7 @@ export class Customer {
         }
 
         if (_response.error.reason === "status-code") {
-            throw new errors.ZachkirschApiError({
+            throw new errors.ExploError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
             });
@@ -94,14 +92,14 @@ export class Customer {
 
         switch (_response.error.reason) {
             case "non-json":
-                throw new errors.ZachkirschApiError({
+                throw new errors.ExploError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.ZachkirschApiTimeoutError();
+                throw new errors.ExploTimeoutError();
             case "unknown":
-                throw new errors.ZachkirschApiError({
+                throw new errors.ExploError({
                     message: _response.error.errorMessage,
                 });
         }
@@ -110,7 +108,7 @@ export class Customer {
     /**
      * This endpoint deletes an existing Customer.
      */
-    public async delete(request: ZachkirschApi.DeleteCustomerRequest): Promise<ZachkirschApi.DeleteCustomerResponse> {
+    public async delete(request: Explo.DeleteCustomerRequest): Promise<Explo.DeleteCustomerResponse> {
         const _response = await core.fetcher({
             url: urlJoin(this.options.environment, "/api/delete_customer"),
             method: "DELETE",
@@ -126,7 +124,7 @@ export class Customer {
         }
 
         if (_response.error.reason === "status-code") {
-            throw new errors.ZachkirschApiError({
+            throw new errors.ExploError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
             });
@@ -134,14 +132,14 @@ export class Customer {
 
         switch (_response.error.reason) {
             case "non-json":
-                throw new errors.ZachkirschApiError({
+                throw new errors.ExploError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.ZachkirschApiTimeoutError();
+                throw new errors.ExploTimeoutError();
             case "unknown":
-                throw new errors.ZachkirschApiError({
+                throw new errors.ExploError({
                     message: _response.error.errorMessage,
                 });
         }
@@ -153,9 +151,7 @@ export class Customer {
      * compromised.
      *
      */
-    public async refreshToken(
-        request: ZachkirschApi.RefreshCustomerTokenRequest
-    ): Promise<ZachkirschApi.RefreshCustomerTokenResponse> {
+    public async refreshToken(request: Explo.RefreshCustomerTokenRequest): Promise<Explo.RefreshCustomerTokenResponse> {
         const _response = await core.fetcher({
             url: urlJoin(this.options.environment, "/api/refresh_customer_token"),
             method: "POST",
@@ -173,7 +169,7 @@ export class Customer {
         }
 
         if (_response.error.reason === "status-code") {
-            throw new errors.ZachkirschApiError({
+            throw new errors.ExploError({
                 statusCode: _response.error.statusCode,
                 body: _response.error.body,
             });
@@ -181,14 +177,14 @@ export class Customer {
 
         switch (_response.error.reason) {
             case "non-json":
-                throw new errors.ZachkirschApiError({
+                throw new errors.ExploError({
                     statusCode: _response.error.statusCode,
                     body: _response.error.rawBody,
                 });
             case "timeout":
-                throw new errors.ZachkirschApiTimeoutError();
+                throw new errors.ExploTimeoutError();
             case "unknown":
-                throw new errors.ZachkirschApiError({
+                throw new errors.ExploError({
                     message: _response.error.errorMessage,
                 });
         }

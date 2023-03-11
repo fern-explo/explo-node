@@ -3,12 +3,12 @@
  */
 
 import * as serializers from "../../..";
-import { ZachkirschApi } from "@fern-api/explo";
+import { Explo } from "@fern-api/explo";
 import * as core from "../../../../core";
 
 export const DeleteCustomerResponse: core.serialization.ObjectSchema<
     serializers.DeleteCustomerResponse.Raw,
-    ZachkirschApi.DeleteCustomerResponse
+    Explo.DeleteCustomerResponse
 > = core.serialization
     .object({})
     .extend(core.serialization.lazyObject(async () => (await import("../../..")).BaseResponse));

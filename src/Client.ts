@@ -5,15 +5,15 @@
 import * as core from "./core";
 import { Customer } from "./api/resources/customer/client/Client";
 
-export declare namespace ZachkirschApiClient {
+export declare namespace ExploClient {
     interface Options {
         environment: string;
         token: core.Supplier<string>;
     }
 }
 
-export class ZachkirschApiClient {
-    constructor(private readonly options: ZachkirschApiClient.Options) {}
+export class ExploClient {
+    constructor(private readonly options: ExploClient.Options) {}
 
     private _customer: Customer | undefined;
 

@@ -1,6 +1,6 @@
 {
     "name": "@fern-api/explo",
-    "version": "0.0.4",
+    "version": "0.0.7",
     "private": false,
     "repository": "https://github.com/fern-explo/explo-node",
     "files": [

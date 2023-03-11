@@ -3,10 +3,10 @@
  */
 
 import * as serializers from "../../..";
-import { ZachkirschApi } from "@fern-api/explo";
+import { Explo } from "@fern-api/explo";
 import * as core from "../../../../core";
 
-export const BaseResponse: core.serialization.ObjectSchema<serializers.BaseResponse.Raw, ZachkirschApi.BaseResponse> =
+export const BaseResponse: core.serialization.ObjectSchema<serializers.BaseResponse.Raw, Explo.BaseResponse> =
     core.serialization.object({
         success: core.serialization.number(),
     });

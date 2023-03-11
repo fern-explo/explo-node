@@ -3,12 +3,12 @@
  */
 
 import * as serializers from "../../../..";
-import { ZachkirschApi } from "@fern-api/explo";
+import { Explo } from "@fern-api/explo";
 import * as core from "../../../../../core";
 
 export const DeleteCustomerRequest: core.serialization.Schema<
     serializers.DeleteCustomerRequest.Raw,
-    ZachkirschApi.DeleteCustomerRequest
+    Explo.DeleteCustomerRequest
 > = core.serialization.object({
     currentToken: core.serialization.property("current_token", core.serialization.string()),
 });

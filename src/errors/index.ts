@@ -1,2 +1,2 @@
-export { ZachkirschApiError } from "./ZachkirschApiError";
-export { ZachkirschApiTimeoutError } from "./ZachkirschApiTimeoutError";
+export { ExploError } from "./ExploError";
+export { ExploTimeoutError } from "./ExploTimeoutError";

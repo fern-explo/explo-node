@@ -3,10 +3,10 @@
  */
 
 import * as serializers from "../../..";
-import { ZachkirschApi } from "@fern-api/explo";
+import { Explo } from "@fern-api/explo";
 import * as core from "../../../../core";
 
-export const Customer: core.serialization.ObjectSchema<serializers.Customer.Raw, ZachkirschApi.Customer> =
+export const Customer: core.serialization.ObjectSchema<serializers.Customer.Raw, Explo.Customer> =
     core.serialization.object({
         teamId: core.serialization.property("team_id", core.serialization.number()),
         token: core.serialization.string(),

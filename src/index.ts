@@ -1,3 +1,3 @@
-export * as ZachkirschApi from "./api";
-export { ZachkirschApiClient } from "./Client";
-export { ZachkirschApiError, ZachkirschApiTimeoutError } from "./errors";
+export * as Explo from "./api";
+export { ExploClient } from "./Client";
+export { ExploError, ExploTimeoutError } from "./errors";
